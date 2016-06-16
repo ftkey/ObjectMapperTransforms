@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-public class AnyToStringTransforms: TransformType {
+public class AnyToStringTransform: TransformType {
     
     public typealias Object = String
     public typealias JSON = String
@@ -44,7 +44,7 @@ public class AnyToStringTransforms: TransformType {
     
 }
 
-public class AnyToDoubleTransforms: TransformType {
+public class AnyToDoubleTransform: TransformType {
     
     public typealias Object = Double
     public typealias JSON = Double
@@ -91,7 +91,7 @@ public class AnyToDoubleTransforms: TransformType {
     }
 }
 
-public class AnyToIntTransforms: TransformType {
+public class AnyToIntTransform: TransformType {
     
     public typealias Object = Int
     public typealias JSON = Int
@@ -136,7 +136,7 @@ public class AnyToIntTransforms: TransformType {
         return nil
     }
 }
-public class AnyToBoolTransforms: TransformType {
+public class AnyToBoolTransform: TransformType {
     
     public typealias Object = Bool
     public typealias JSON = Bool
