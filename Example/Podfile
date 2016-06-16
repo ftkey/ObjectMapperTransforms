@@ -1,0 +1,15 @@
+
+workspace "Example.xcworkspace"
+project "Example.xcodeproj"
+
+use_frameworks!
+platform :ios, '8.0'
+
+target :"Example" do 
+    pod 'ObjectMapperTransforms' ,:path => '../'
+
+    target :"ExampleTests" do
+      inherit! :search_paths
+    end
+end
+
