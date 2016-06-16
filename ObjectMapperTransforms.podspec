@@ -10,13 +10,18 @@ Pod::Spec.new do |s|
 
   s.name         = "ObjectMapperTransforms"
   s.version      = "1.0.0"
-  s.summary      = "ObjectMapperTransforms - Any To Any Transform"
+  s.summary      = "ObjectMapperTransforms - Any To Any(String|Int|Double|Bool) Transform"
   s.homepage     = "http://futao.me/"
   s.license      = "Apache License, Version 2.0"
   s.author       = "Futao"
   s.requires_arc = true
   s.source       = {:git => 'https://github.com/Ftkey/ObjectMapperTransforms.git', :tag => s.version.to_s }
 
+  s.watchos.deployment_target = '2.0'
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
+  s.tvos.deployment_target = '9.0'
+  
   s.frameworks  = "Foundation"
   s.source_files = 'Sources/**/*.{swift}'
   s.dependency 'ObjectMapper'
