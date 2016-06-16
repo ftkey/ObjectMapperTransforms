@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "ObjectMapperTransforms - Any To Any(String|Int|Double|Bool) Transform"
   s.homepage     = "http://futao.me/"
+  s.license      = 'MIT'
   s.author       = "Futao"
   s.requires_arc = true
   s.source       = {:git => 'https://github.com/Ftkey/ObjectMapperTransforms.git', :tag => s.version.to_s }
