@@ -1,5 +1,12 @@
 # ObjectMapperTransforms
 
+======
+
+[![CocoaPods](https://img.shields.io/cocoapods/v/ObjectMapperTransforms.svg)](https://github.com/Ftkey/ObjectMapperTransforms)
+[![Carthage compatible](https://img.shields.io/badge/ObjectMapperTransforms-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+
+
 ```
 class AnyToStringTransformType: Mappable {
     
