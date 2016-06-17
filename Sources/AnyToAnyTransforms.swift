@@ -70,10 +70,20 @@ public class AnyToDoubleTransform: TransformType {
                 }else if value == String(false) {
                     return falseNumber.doubleValue
                 }else {
-                    return atof(value)
+                    let decimal = NSDecimalNumber(string: value)
+                    if decimal == NSDecimalNumber.notANumber() {
+                        return nil
+                    }else {
+                        return decimal.doubleValue
+                    }
                 }
             }else {
-                return atof(value)
+                let decimal = NSDecimalNumber(string: value)
+                if decimal == NSDecimalNumber.notANumber() {
+                    return nil
+                }else {
+                    return decimal.doubleValue
+                }
             }
             
         }
@@ -117,10 +127,20 @@ public class AnyToIntTransform: TransformType {
                 }else if value == String(false) {
                     return falseNumber.integerValue
                 }else {
-                    return atol(value)
+                    let decimal = NSDecimalNumber(string: value)
+                    if decimal == NSDecimalNumber.notANumber() {
+                        return nil
+                    }else {
+                        return decimal.integerValue
+                    }
                 }
             }else {
-                return atol(value)
+                let decimal = NSDecimalNumber(string: value)
+                if decimal == NSDecimalNumber.notANumber() {
+                    return nil
+                }else {
+                    return decimal.integerValue
+                }
             }
         }
         else if let value = value as? Bool {
@@ -162,12 +182,21 @@ public class AnyToBoolTransform: TransformType {
                 }else if value == String(false) {
                     return false
                 }else {
-                    return NSNumber(integer: atol(value)).boolValue
+                    let decimal = NSDecimalNumber(string: value)
+                    if decimal == NSDecimalNumber.notANumber() {
+                        return nil
+                    }else {
+                        return decimal.boolValue
+                    }
                 }
             }else {
-                return NSNumber(integer: atol(value)).boolValue
+                let decimal = NSDecimalNumber(string: value)
+                if decimal == NSDecimalNumber.notANumber() {
+                    return nil
+                }else {
+                    return decimal.boolValue
+                }
             }
-            
         }
         else if let value = value as? Bool {
             return value

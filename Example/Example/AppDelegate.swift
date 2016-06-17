@@ -15,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let decimal = NSDecimalNumber(string: "1.2")
+        if decimal == NSDecimalNumber.notANumber() {
+            print("nil")
+        }else {
+            print(decimal.integerValue)
+        }
+        print(atol("1.2a"))
+        print(atol("a1.2a"))
+
         // Override point for customization after application launch.
         return true
     }

@@ -121,12 +121,12 @@ class AnyToStringTransformType: Mappable {
     }
     
     func mapping(map: Map) {
-        int <- (map["int"], AnyToStringTransforms())
-        double <- (map["double"], AnyToStringTransforms())
-        intString <- (map["intString"], AnyToStringTransforms())
-        doubleString <- (map["doubleString"], AnyToStringTransforms())
-        bool <- (map["bool"], AnyToStringTransforms())
-        boolString <- (map["boolString"], AnyToStringTransforms())
+        int <- (map["int"], AnyToStringTransform())
+        double <- (map["double"], AnyToStringTransform())
+        intString <- (map["intString"], AnyToStringTransform())
+        doubleString <- (map["doubleString"], AnyToStringTransform())
+        bool <- (map["bool"], AnyToStringTransform())
+        boolString <- (map["boolString"], AnyToStringTransform())
 
     }
 }
@@ -148,12 +148,12 @@ class AnyToDoubleTransformType: Mappable {
     }
     
     func mapping(map: Map) {
-        int <- (map["int"], AnyToDoubleTransforms())
-        double <- (map["double"], AnyToDoubleTransforms())
-        intString <- (map["intString"], AnyToDoubleTransforms())
-        doubleString <- (map["doubleString"], AnyToDoubleTransforms())
-        bool <- (map["bool"], AnyToDoubleTransforms())
-        boolString <- (map["boolString"], AnyToDoubleTransforms())
+        int <- (map["int"], AnyToDoubleTransform())
+        double <- (map["double"], AnyToDoubleTransform())
+        intString <- (map["intString"], AnyToDoubleTransform())
+        doubleString <- (map["doubleString"], AnyToDoubleTransform())
+        bool <- (map["bool"], AnyToDoubleTransform())
+        boolString <- (map["boolString"], AnyToDoubleTransform())
     }
 }
 
@@ -175,12 +175,12 @@ class AnyToIntTransformType: Mappable {
     }
     
     func mapping(map: Map) {
-        int <- (map["int"], AnyToIntTransforms())
-        double <- (map["double"], AnyToIntTransforms())
-        intString <- (map["intString"], AnyToIntTransforms())
-        doubleString <- (map["doubleString"], AnyToIntTransforms())
-        bool <- (map["bool"], AnyToIntTransforms())
-        boolString <- (map["boolString"], AnyToIntTransforms())
+        int <- (map["int"], AnyToIntTransform())
+        double <- (map["double"], AnyToIntTransform())
+        intString <- (map["intString"], AnyToIntTransform())
+        doubleString <- (map["doubleString"], AnyToIntTransform())
+        bool <- (map["bool"], AnyToIntTransform())
+        boolString <- (map["boolString"], AnyToIntTransform())
     }
 }
 
@@ -202,11 +202,11 @@ class AnyToBoolTransformType: Mappable {
     }
     
     func mapping(map: Map) {
-        int <- (map["int"], AnyToBoolTransforms())
-        double <- (map["double"], AnyToBoolTransforms())
-        intString <- (map["intString"], AnyToBoolTransforms())
-        doubleString <- (map["doubleString"], AnyToBoolTransforms())
-        bool <- (map["bool"], AnyToBoolTransforms())
-        boolString <- (map["boolString"], AnyToBoolTransforms())
+        int <- (map["int"], AnyToBoolTransform())
+        double <- (map["double"], AnyToBoolTransform())
+        intString <- (map["intString"], AnyToBoolTransform())
+        doubleString <- (map["doubleString"], AnyToBoolTransform())
+        bool <- (map["bool"], AnyToBoolTransform())
+        boolString <- (map["boolString"], AnyToBoolTransform())
     }
 }
