@@ -17,10 +17,11 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source       = {:git => 'https://github.com/Ftkey/ObjectMapperTransforms.git', :tag => s.version.to_s }
 
-  s.watchos.deployment_target = '2.0'
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.9'
-  s.tvos.deployment_target = '9.0'
+  s.pod_target_xcconfig = {
+    'SWIFT_VERSION' => '3.0',
+  }
   
   s.frameworks  = "Foundation"
   s.source_files = 'Sources/**/*.{swift}'
