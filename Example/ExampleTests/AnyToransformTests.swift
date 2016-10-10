@@ -18,7 +18,7 @@ class AnyToransformTests: XCTestCase {
     
     func testAnyToStringTransform() {
         let mapper = Mapper<AnyToStringTransformType>()
-        print(NSNumber(bool: true).stringValue.lowercaseString,NSNumber(bool: false).stringValue.lowercaseString)
+        print(NSNumber(value: true).stringValue.lowercased(),NSNumber(value: false).stringValue.lowercased())
         print(String(true),String(false))
 
         
@@ -30,7 +30,7 @@ class AnyToransformTests: XCTestCase {
         let doubleString = "\(double)"
         let JSONString = "{\"bool\" : \(bool),\"double\" : \(double), \"int\" : \(int), \"boolString\" : \"\(boolString)\", \"intString\" : \"\(intString)\", \"doubleString\" : \"\(doubleString)\"}"
 
-        let mappedObject = mapper.map(JSONString)
+        let mappedObject = mapper.map(JSONString:JSONString)
         
         XCTAssertNotNil(mappedObject)
         XCTAssertEqual(mappedObject?.int, "11")
@@ -51,7 +51,7 @@ class AnyToransformTests: XCTestCase {
         let intString = "\(int)"
         let doubleString = "\(double)"
         let JSONString = "{\"bool\" : \(bool),\"double\" : \(double), \"int\" : \(int), \"boolString\" : \"\(boolString)\", \"intString\" : \"\(intString)\", \"doubleString\" : \"\(doubleString)\"}"
-        let mappedObject = mapper.map(JSONString)
+        let mappedObject = mapper.map(JSONString:JSONString)
         
         XCTAssertNotNil(mappedObject)
         XCTAssertEqual(mappedObject?.int, 11)
@@ -71,7 +71,7 @@ class AnyToransformTests: XCTestCase {
         let intString = "\(int)"
         let doubleString = "\(double)"
         let JSONString = "{\"bool\" : \(bool),\"double\" : \(double), \"int\" : \(int), \"boolString\" : \"\(boolString)\", \"intString\" : \"\(intString)\", \"doubleString\" : \"\(doubleString)\"}"
-        let mappedObject = mapper.map(JSONString)
+        let mappedObject = mapper.map(JSONString:JSONString)
         
         XCTAssertNotNil(mappedObject)
         XCTAssertEqual(mappedObject?.int, 11.0)
@@ -90,7 +90,7 @@ class AnyToransformTests: XCTestCase {
         let intString = "\(int)"
         let doubleString = "\(double)"
         let JSONString = "{\"bool\" : \(bool),\"double\" : \(double), \"int\" : \(int), \"boolString\" : \"\(boolString)\", \"intString\" : \"\(intString)\", \"doubleString\" : \"\(doubleString)\"}"
-        let mappedObject = mapper.map(JSONString)
+        let mappedObject = mapper.map(JSONString:JSONString)
         
         XCTAssertNotNil(mappedObject)
         XCTAssertEqual(mappedObject?.int, false)
@@ -116,7 +116,7 @@ class AnyToStringTransformType: Mappable {
         
     }
     
-    required init?(_ map: Map){
+    required init?(map: Map){
         
     }
     
@@ -143,7 +143,7 @@ class AnyToDoubleTransformType: Mappable {
         
     }
     
-    required init?(_ map: Map){
+    required init?(map: Map){
         
     }
     
@@ -170,7 +170,7 @@ class AnyToIntTransformType: Mappable {
         
     }
     
-    required init?(_ map: Map){
+    required init?(map: Map){
         
     }
     
@@ -197,7 +197,7 @@ class AnyToBoolTransformType: Mappable {
         
     }
     
-    required init?(_ map: Map){
+    required init?(map: Map){
         
     }
     

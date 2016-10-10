@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-public class AnyToStringTransform: TransformType {
+open class AnyToStringTransform: TransformType {
     
     public typealias Object = String
     public typealias JSON = String
@@ -18,12 +18,12 @@ public class AnyToStringTransform: TransformType {
      */
     public init() {}
     
-    public func transformFromJSON(value: AnyObject?) -> Object? {
+    open func transformFromJSON(_ value: Any?) -> Object? {
         if let value = value as? NSNumber {
             if value.isBoolType {
                 return String(value.boolValue)
             }else{
-                return String(value)
+                return String(describing: value)
             }
         }
         else if let value = value as? String {
@@ -35,7 +35,7 @@ public class AnyToStringTransform: TransformType {
         return nil
     }
     
-    public func transformToJSON(value: Object?) -> JSON? {
+    open func transformToJSON(_ value: Object?) -> JSON? {
         if let value = value {
             return value
         }
@@ -44,7 +44,7 @@ public class AnyToStringTransform: TransformType {
     
 }
 
-public class AnyToDoubleTransform: TransformType {
+open class AnyToDoubleTransform: TransformType {
     
     public typealias Object = Double
     public typealias JSON = Double
@@ -59,7 +59,7 @@ public class AnyToDoubleTransform: TransformType {
         allowBooleanString = allow
     }
     
-    public func transformFromJSON(value: AnyObject?) -> Object? {
+    open func transformFromJSON(_ value: Any?) -> Object? {
         if let value = value as? NSNumber {
             return value.doubleValue
         }
@@ -71,7 +71,7 @@ public class AnyToDoubleTransform: TransformType {
                     return falseNumber.doubleValue
                 }else {
                     let decimal = NSDecimalNumber(string: value)
-                    if decimal == NSDecimalNumber.notANumber() {
+                    if decimal == NSDecimalNumber.notANumber {
                         return nil
                     }else {
                         return decimal.doubleValue
@@ -79,7 +79,7 @@ public class AnyToDoubleTransform: TransformType {
                 }
             }else {
                 let decimal = NSDecimalNumber(string: value)
-                if decimal == NSDecimalNumber.notANumber() {
+                if decimal == NSDecimalNumber.notANumber {
                     return nil
                 }else {
                     return decimal.doubleValue
@@ -93,7 +93,7 @@ public class AnyToDoubleTransform: TransformType {
         return nil
     }
     
-    public func transformToJSON(value: Object?) -> JSON? {
+    open func transformToJSON(_ value: Object?) -> JSON? {
         if let value = value {
             return value
         }
@@ -101,7 +101,7 @@ public class AnyToDoubleTransform: TransformType {
     }
 }
 
-public class AnyToIntTransform: TransformType {
+open class AnyToIntTransform: TransformType {
     
     public typealias Object = Int
     public typealias JSON = Int
@@ -116,47 +116,47 @@ public class AnyToIntTransform: TransformType {
         allowBooleanString = allow
     }
     
-    public func transformFromJSON(value: AnyObject?) -> Object? {
+    open func transformFromJSON(_ value: Any?) -> Object? {
         if let value = value as? NSNumber {
-            return value.integerValue
+            return value.intValue
         }
         else if let value = value as? String {
             if allowBooleanString {
                 if value == String(true) {
-                    return trueNumber.integerValue
+                    return trueNumber.intValue
                 }else if value == String(false) {
-                    return falseNumber.integerValue
+                    return falseNumber.intValue
                 }else {
                     let decimal = NSDecimalNumber(string: value)
-                    if decimal == NSDecimalNumber.notANumber() {
+                    if decimal == NSDecimalNumber.notANumber {
                         return nil
                     }else {
-                        return decimal.integerValue
+                        return decimal.intValue
                     }
                 }
             }else {
                 let decimal = NSDecimalNumber(string: value)
-                if decimal == NSDecimalNumber.notANumber() {
+                if decimal == NSDecimalNumber.notANumber {
                     return nil
                 }else {
-                    return decimal.integerValue
+                    return decimal.intValue
                 }
             }
         }
         else if let value = value as? Bool {
-            return NSNumber(bool: value).integerValue
+            return NSNumber(value: value as Bool).intValue
         }
         return nil
     }
     
-    public func transformToJSON(value: Object?) -> JSON? {
+    open func transformToJSON(_ value: Object?) -> JSON? {
         if let value = value {
             return value
         }
         return nil
     }
 }
-public class AnyToBoolTransform: TransformType {
+open class AnyToBoolTransform: TransformType {
     
     public typealias Object = Bool
     public typealias JSON = Bool
@@ -171,7 +171,7 @@ public class AnyToBoolTransform: TransformType {
         allowBooleanString = allow
     }
     
-    public func transformFromJSON(value: AnyObject?) -> Object? {
+    open func transformFromJSON(_ value: Any?) -> Object? {
         if let value = value as? NSNumber {
             return value.boolValue
         }
@@ -183,7 +183,7 @@ public class AnyToBoolTransform: TransformType {
                     return false
                 }else {
                     let decimal = NSDecimalNumber(string: value)
-                    if decimal == NSDecimalNumber.notANumber() {
+                    if decimal == NSDecimalNumber.notANumber {
                         return nil
                     }else {
                         return decimal.boolValue
@@ -191,7 +191,7 @@ public class AnyToBoolTransform: TransformType {
                 }
             }else {
                 let decimal = NSDecimalNumber(string: value)
-                if decimal == NSDecimalNumber.notANumber() {
+                if decimal == NSDecimalNumber.notANumber {
                     return nil
                 }else {
                     return decimal.boolValue
@@ -204,7 +204,7 @@ public class AnyToBoolTransform: TransformType {
         return nil
     }
     
-    public func transformToJSON(value: Object?) -> JSON? {
+    open func transformToJSON(_ value: Object?) -> JSON? {
         if let value = value {
             return value
         }
@@ -213,18 +213,18 @@ public class AnyToBoolTransform: TransformType {
     
 }
 
-private let trueNumber = NSNumber(bool: true)
-private let falseNumber = NSNumber(bool: false)
-private let trueObjCType = String.fromCString(trueNumber.objCType)
-private let falseObjCType = String.fromCString(falseNumber.objCType)
+private let trueNumber = NSNumber(value: true as Bool)
+private let falseNumber = NSNumber(value: false as Bool)
+private let trueObjCType = String(cString: trueNumber.objCType)
+private let falseObjCType = String(cString: falseNumber.objCType)
 
 // MARK: - NSNumber: Comparable
 private extension NSNumber {
     var isBoolType:Bool {
         get {
-            let objCType = String(UTF8String: self.objCType)
-            if (self.compare(trueNumber) == NSComparisonResult.OrderedSame && objCType == trueObjCType)
-                || (self.compare(falseNumber) == NSComparisonResult.OrderedSame && objCType == falseObjCType){
+            let objCType = String(validatingUTF8: self.objCType)
+            if (self.compare(trueNumber) == ComparisonResult.orderedSame && objCType == trueObjCType)
+                || (self.compare(falseNumber) == ComparisonResult.orderedSame && objCType == falseObjCType){
                 return true
             } else {
                 return false
